@@ -1,0 +1,15 @@
+app:
+  #Desarrollo
+  #  baseUrl: http://localhost:4200/
+
+  #Producción
+  #baseUrl: https://io.pertrinum.com/
+
+spring:
+  data:
+    mongodb:
+      uri: 'mongodb+srv://menuapp:4q8xGUD3sySlUISE@cluster0-3a1ky.mongodb.net/test?retryWrites=true&w=majority'
+      database: 'menuapp'
+
+server:
+  port: 8090

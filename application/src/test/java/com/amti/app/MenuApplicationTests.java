@@ -1,4 +1,4 @@
-package com.amti.menu;
+package com.amti;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

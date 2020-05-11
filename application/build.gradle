@@ -1,0 +1,10 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    runtime('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-autoconfigure')
+    compile group: 'org.springframework', name: 'spring-context'
+    compile project(":infrastructure:entry-point:api-rest")
+    compile project(":infrastructure:data-provider:mongodb-repository")
+}
+

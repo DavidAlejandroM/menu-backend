@@ -1,7 +1,8 @@
-package com.amti.menu;
+package com.amti;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 @SpringBootApplication
 public class MenuApplication {
