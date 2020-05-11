@@ -2,3 +2,8 @@ rootProject.name = 'menu'
 
 include 'application'
 
+include 'domain:model'
+include 'domain:usecase'
+
+include 'infrastructure:data-provider:mongodb-repository'
+include 'infrastructure:entry-point:api-rest'

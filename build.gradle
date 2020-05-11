@@ -1,7 +1,18 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.7.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+dependencies {
+}
+
+
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-    group = 'com.amti'
+
+
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '1.8'
 
