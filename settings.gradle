@@ -1,9 +1,10 @@
-rootProject.name = 'menu'
+rootProject.name = 'model'
 
 include 'application'
+include 'infrastructure'
 
-include 'domain:model'
-include 'domain:usecase'
+include 'core:model'
+include 'core:usecase'
 
-include 'infrastructure:data-provider:mongodb-repository'
-include 'infrastructure:entry-point:api-rest'
+include 'infrastructure:data-providers:mongodb-repository'
+include 'infrastructure:entry-points:api-rest'
