@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import reactor.core.publisher.Mono;
 
-import java.time.LocalDateTime;
-
 import static org.mockito.Mockito.*;
 
 class PropietarioUseCaseTest {
