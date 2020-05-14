@@ -1,37 +1,33 @@
-plugins {
-	id 'org.springframework.boot' version '2.3.0.BUILD-SNAPSHOT'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'java'
-}
 
-group = 'com.amti'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
 
-repositories {
-	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
-}
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '1.8'
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-	testImplementation 'io.projectreactor:reactor-test'
-}
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
 
-test {
-	useJUnitPlatform()
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+        compile('org.modelmapper:modelmapper:1.1.0')
+        compile group: 'io.projectreactor', name: 'reactor-core', version: '3.3.5.RELEASE'
+        testImplementation('org.springframework.boot:spring-boot-starter-test:2.2.7.RELEASE') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+//        testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.7'
+//        testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.7.4'
+    }
 }
