@@ -1,16 +1,12 @@
-package com.amti.repository.repository.negocio.generic;
+package com.amti.repository.repository.generic;
 
-import com.amti.repository.repository.negocio.NegocioData;
 import org.modelmapper.ModelMapper;
-import org.reactivestreams.Publisher;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import static org.springframework.data.domain.Example.of;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.function.Function;
 
 public abstract class GenericOperationRepository<S,D,I,R extends ReactiveCrudRepository<D, I>> {
 

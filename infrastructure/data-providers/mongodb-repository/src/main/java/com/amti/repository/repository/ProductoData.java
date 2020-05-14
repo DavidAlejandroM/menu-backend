@@ -1,4 +1,4 @@
-package com.amti.repository.repository.negocio;
+package com.amti.repository.repository;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +8,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @Document
-public class NegocioData{
-
+public class ProductoData {
     @Id
-    String id;
-    String nit;
-    String name;
-    String dir;
+    private String id;
+    private String nombre;
+    private String descripcion;
+    private String precio;
+    private String negocio;
 }

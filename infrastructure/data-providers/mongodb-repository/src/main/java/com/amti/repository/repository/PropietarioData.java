@@ -1,4 +1,4 @@
-package com.amti.repository.repository.negocio;
+package com.amti.repository.repository;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

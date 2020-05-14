@@ -1,11 +1,10 @@
-package com.amti.repository.repository.negocio.adapter;
+package com.amti.repository.repository.adapter;
 
 import com.amti.model.negocio.Negocio;
 import com.amti.model.negocio.NegocioRepository;
-import com.amti.repository.repository.negocio.NegocioData;
-import com.amti.repository.repository.negocio.generic.GenericOperationRepository;
-
-import com.amti.repository.repository.negocio.interfaces.NegocioDataRepository;
+import com.amti.repository.repository.NegocioData;
+import com.amti.repository.repository.generic.GenericOperationRepository;
+import com.amti.repository.repository.interfaces.NegocioDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

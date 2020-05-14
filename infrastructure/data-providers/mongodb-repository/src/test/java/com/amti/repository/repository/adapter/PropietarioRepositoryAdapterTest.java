@@ -1,4 +1,4 @@
-package com.amti.repository.repository.negocio.adapter;
+package com.amti.repository.repository.adapter;
 
 import org.junit.jupiter.api.Test;
 

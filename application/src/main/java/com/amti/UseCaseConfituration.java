@@ -1,9 +1,10 @@
 package com.amti;
 
 import com.amti.model.negocio.NegocioRepository;
-import com.amti.model.propietario.Propietario;
+import com.amti.model.producto.ProductoRepository;
 import com.amti.model.propietario.PropietarioRepository;
 import com.amti.usecases.NegocioUseCase;
+import com.amti.usecases.ProductoUseCase;
 import com.amti.usecases.PropietarioUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,5 +24,11 @@ public class UseCaseConfituration {
     public PropietarioUseCase getPropietarioUseCase(
             PropietarioRepository repository) {
         return new PropietarioUseCase(repository);
+    }
+
+    @Bean
+    public ProductoUseCase getProductoUseCase(
+            ProductoRepository repository) {
+        return new ProductoUseCase(repository);
     }
 }
