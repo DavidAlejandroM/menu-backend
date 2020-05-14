@@ -6,8 +6,8 @@ plugins {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	compile project(':core:model')
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	compile project(':core:usecase')
+	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

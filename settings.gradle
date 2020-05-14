@@ -1,4 +1,4 @@
-rootProject.name = 'model'
+rootProject.name = 'menu'
 
 include 'application'
 include 'infrastructure'
