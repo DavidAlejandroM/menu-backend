@@ -1,8 +1,10 @@
 package com.amti;
 
+import com.amti.model.categoria.CategoriaRepository;
 import com.amti.model.negocio.NegocioRepository;
 import com.amti.model.producto.ProductoRepository;
 import com.amti.model.propietario.PropietarioRepository;
+import com.amti.usecases.CategoriaUseCase;
 import com.amti.usecases.NegocioUseCase;
 import com.amti.usecases.ProductoUseCase;
 import com.amti.usecases.PropietarioUseCase;
@@ -13,10 +15,9 @@ import org.springframework.context.annotation.Configuration;
 public class UseCaseConfituration {
 
 
-
     @Bean
     public NegocioUseCase getNegocioUseCase(
-            NegocioRepository repository){
+            NegocioRepository repository) {
         return new NegocioUseCase(repository);
     }
 
@@ -28,7 +29,13 @@ public class UseCaseConfituration {
 
     @Bean
     public ProductoUseCase getProductoUseCase(
-            ProductoRepository repository) {
-        return new ProductoUseCase(repository);
+            ProductoRepository productoRepository, NegocioRepository negocioRepository) {
+        return new ProductoUseCase(productoRepository, negocioRepository);
+    }
+
+    @Bean
+    public CategoriaUseCase getCategoriaUseCase(CategoriaRepository categoriaRepository,
+                                                NegocioRepository negocioRepository) {
+        return new CategoriaUseCase(categoriaRepository, negocioRepository);
     }
 }

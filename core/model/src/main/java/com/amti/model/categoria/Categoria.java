@@ -1,5 +1,6 @@
-package com.amti.model.producto;
+package com.amti.model.categoria;
 
+import com.amti.model.negocio.Negocio;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Producto {
+public class Categoria {
     private String id;
     private String nombre;
     private String descripcion;
-    private Integer precio;
-    private String moneda;
-    private String negocio;
+    private Negocio negocio;
+    private Boolean esPublica;
+    private String image;
 }
