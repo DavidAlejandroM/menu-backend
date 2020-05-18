@@ -20,7 +20,6 @@ node('docker') {
   def containerName = "container-${tagName}"
   stage('Deploy') {
       sh "docker run -p 8090:8080 --name ${containerName} ${tagName}"
-    }
   }
 
   try {
