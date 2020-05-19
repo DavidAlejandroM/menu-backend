@@ -1,47 +1,40 @@
+pipeline {
 
-def tagName = "menu"
-def nodeName = "principal"
-node(nodeName) {
-    stage('Checkout') {
-        scm checkout
-    }
+   agent any
 
-    stage 'Build'
-    sh "./gradlew build"
+   tools {
+      // Install the Maven version configured as "M3" and add it to the path.
+      gradle "gradle-6.3"
+   }
 
-    stage 'Publish Docker'
-    sh "docker build -t ${tagName} ."
-}
+   stages {
+      stage('Build') {
+         steps {
+            git credentialsId: 'qwe', url: 'https://github.com/DavidAlejandroM/menu-backend.git'
 
-node(nodeName) {
-  def containerName = "container-${tagName}"
-  stage('Deploy') {
-      sh "docker run -p 8090:8080 --name ${containerName} ${tagName}"
-  }
-
-  try {
-    postDeployCheck(containerName)
-  } finally {
-    stage('Finalize') {
-        //sh "docker rm -f ${containerName}"
-        //sh "docker rmi -f nexus:20000/demo:${version}"
-    }
-  }
-}
-
-def postDeployCheck(containerName) {
-  stage('Post-Deploy') {
-    timeout(20) {
-      waitUntil {
-        try {
-          sh "curl localhost:8090/negocios/"
-          return true
-        } catch(error) {
-          sleep 1
-          currentBuild.result = 'SUCCESS'
-          return false
-        }
+            sh "gradle clean build"
+         }
       }
-    }
+
+      stage('Test') {
+         steps {
+            sh "gradle test"
+         }
+      }
+
+      stage('build docker image') {
+         steps {
+            sh "docker build -t menu ."
+         }
+      }
+
+      stage('Deploy') {
+          steps {
+              sh 'docker ps -f name=menu -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=menu -q | xargs -r docker container rm'
+            sh "docker run -d -p 8080:8080 --name container-menu menu"
+         }
+
   }
+   }
 }
