@@ -1,5 +1,6 @@
 def tagName = "menu"
-node('docker') {
+def nodeName = "principal"
+node(nodeName) {
     stage('Checkout') {
         scm checkout
     }
@@ -16,7 +17,7 @@ node('docker') {
     sh "docker build -t ${tagName} ."
 }
 
-node('docker') {
+node(nodeName) {
   def containerName = "container-${tagName}"
   stage('Deploy') {
       sh "docker run -p 8090:8080 --name ${containerName} ${tagName}"
