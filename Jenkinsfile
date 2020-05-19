@@ -2,9 +2,9 @@
 def tagName = "menu"
 def nodeName = "principal"
 node(nodeName) {
-    /*stage('Checkout') {
+    stage('Checkout') {
         scm checkout
-    }*/
+    }
 
     stage 'Build'
     sh "./gradlew build"
