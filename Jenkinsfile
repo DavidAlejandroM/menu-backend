@@ -1,17 +1,13 @@
 pipeline {
-
    agent any
 
    tools {
-      // Install the Maven version configured as "M3" and add it to the path.
       gradle "gradle-6.3"
    }
 
    stages {
       stage('Build') {
          steps {
-            git credentialsId: 'qwe', url: 'https://github.com/DavidAlejandroM/menu-backend.git'
-
             sh "gradle clean build"
          }
       }
