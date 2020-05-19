@@ -1,17 +1,13 @@
+
 def tagName = "menu"
 def nodeName = "principal"
 node(nodeName) {
-    stage('Checkout') {
+    /*stage('Checkout') {
         scm checkout
-    }
+    }*/
 
-    //это стадия сборки
     stage 'Build'
     sh "./gradlew build"
-
-
-    stage 'Publish JAR'
-    uploadJarToNexus(version)
 
     stage 'Publish Docker'
     sh "docker build -t ${tagName} ."
@@ -49,3 +45,4 @@ def postDeployCheck(containerName) {
     }
   }
 }
+/*
