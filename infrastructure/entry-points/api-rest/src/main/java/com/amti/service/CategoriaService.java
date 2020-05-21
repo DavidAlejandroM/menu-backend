@@ -30,6 +30,6 @@ public class CategoriaService {
 
     @GetMapping("/holasofi")
     public Mono<String> holaSofi(){
-        return Mono.just("HOLA SOFIIIII, COMO VAS?");
+        return Mono.just("HOLA SOFIIIII, COMO VAS?  hola");
     }
 }
