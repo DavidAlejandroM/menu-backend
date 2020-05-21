@@ -16,7 +16,10 @@ public class CategoriaUseCase {
 
     public Mono<Categoria> crear(Categoria categoria) {
 
-        Negocio  negocio = negocioRepository.findById(categoria.getNegocio().getId()).block();
+        Negocio  negocio = negocioRepository.findById(categoria
+                .getNegocio()
+                .getId())
+                .block();
 
         categoria.setNegocio(negocio);
 

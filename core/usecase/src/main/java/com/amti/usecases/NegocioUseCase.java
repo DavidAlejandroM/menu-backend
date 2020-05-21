@@ -17,4 +17,5 @@ public class NegocioUseCase {
     public Mono<Negocio> create(Negocio negocio) {
         return repository.save(negocio);
     }
+
 }

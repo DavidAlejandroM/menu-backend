@@ -27,4 +27,9 @@ public class CategoriaService {
     public Mono<Categoria> create(@RequestBody Categoria categoria) {
         return categoriaUseCase.crear(categoria);
     }
+
+    @GetMapping("/holasofi")
+    public Mono<String> holaSofi(){
+        return Mono.just("HOLA SOFIIIII, COMO VAS?");
+    }
 }

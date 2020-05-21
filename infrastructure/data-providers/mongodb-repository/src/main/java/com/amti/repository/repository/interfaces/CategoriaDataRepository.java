@@ -10,4 +10,6 @@ public interface CategoriaDataRepository extends ReactiveCrudRepository<Categori
     Flux<CategoriaData> findAllByNegocioId(String negocioId);
 
     Flux<CategoriaData> findAllByEsPublica(Boolean esPublica);
+
+    Flux<CategoriaData> findAllByNombre(String nombre);
 }

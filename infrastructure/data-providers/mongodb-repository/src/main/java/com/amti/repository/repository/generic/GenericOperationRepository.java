@@ -37,14 +37,6 @@ public abstract class GenericOperationRepository<S, D, I, R extends ReactiveCrud
                 .map(this::toEntity);
     }
 
-    protected Mono<S> doQuery(Mono<D> query) {
-        return query.map(this::toEntity);
-    }
-
-    protected Flux<S> doQueryMany(Flux<D> query) {
-        return query.map(this::toEntity);
-    }
-
     public S toEntity(D data) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(data, (Type) entityClass);
@@ -52,7 +44,6 @@ public abstract class GenericOperationRepository<S, D, I, R extends ReactiveCrud
 
     public D toData(S entity) {
         ModelMapper modelMapper = new ModelMapper();
-
         return modelMapper.map(entity, dataClass);
     }
 
