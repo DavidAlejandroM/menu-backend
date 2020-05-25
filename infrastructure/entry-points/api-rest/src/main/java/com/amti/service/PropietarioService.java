@@ -3,10 +3,7 @@ package com.amti.service;
 import com.amti.model.propietario.Propietario;
 import com.amti.usecases.PropietarioUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -16,8 +13,8 @@ public class PropietarioService {
     PropietarioUseCase propietarioUseCase;
 
     @GetMapping("/propietario")
-    public Mono<Propietario> getAll(){
-        return propietarioUseCase.getPropietarioByCorreo("jandro240@gmail.com");
+    public Mono<Propietario> getAll(@RequestParam String correo){
+        return propietarioUseCase.getPropietarioByCorreo(correo);
     }
 
     @PostMapping(value = "/propietario")

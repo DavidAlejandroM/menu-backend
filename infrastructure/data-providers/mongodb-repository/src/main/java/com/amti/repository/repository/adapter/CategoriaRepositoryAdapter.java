@@ -32,6 +32,6 @@ public class CategoriaRepositoryAdapter
     @Override
     public Flux<Categoria> findAllByEsPublica() {
         return repository.findAllByEsPublica(true)
-                .map(this::toEntity);
+                .map(this::toEntity).sort((a,b)->a.getNombre().compareTo(b.getNombre()));
     }
 }

@@ -17,8 +17,9 @@ public class UseCaseConfiguration {
 
     @Bean
     public NegocioUseCase getNegocioUseCase(
-            NegocioRepository repository) {
-        return new NegocioUseCase(repository);
+            NegocioRepository repository,
+            PropietarioRepository propietarioRepository) {
+        return new NegocioUseCase(repository, propietarioRepository);
     }
 
     @Bean
