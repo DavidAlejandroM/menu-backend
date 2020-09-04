@@ -28,8 +28,4 @@ public class CategoriaService {
         return categoriaUseCase.crear(categoria);
     }
 
-    @GetMapping("/holasofi")
-    public Mono<String> holaSofi(){
-        return Mono.just("HOLA SOFIIIII, COMO VAS?  hola");
-    }
 }
